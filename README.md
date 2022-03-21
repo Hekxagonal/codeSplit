@@ -1,2 +1,1 @@
-# codeSplit
-codeSplit is a community for share codes
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
