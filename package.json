@@ -1,0 +1,22 @@
+{
+  "name": "codesplit",
+  "version": "1.0.0",
+  "description": "Projeto de Portfolio Pessoal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hekxagonal/codeSplit.git"
+  },
+  "author": "Flavio Alexandre Rodrigues Gomes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hekxagonal/codeSplit/issues"
+  },
+  "homepage": "https://github.com/Hekxagonal/codeSplit#readme",
+  "dependencies": {
+    "styled-components": "^5.3.3"
+  }
+}

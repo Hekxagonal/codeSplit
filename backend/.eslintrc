@@ -1,6 +1,9 @@
 {
   "parser": "babel-eslint",
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
   "env": {
     "commonjs": true,
     "es6": true,
@@ -22,6 +25,11 @@
     "linebreak-style": ["error", "unix"],
     "no-console": 0,
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
-  }
+    "semi": ["error", "always"],
+    "prettier/prettier": "error"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+]
 }
