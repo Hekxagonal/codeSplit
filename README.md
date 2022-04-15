@@ -1,4 +1,9 @@
 # codeSplit
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![NextJS](https://img.shields.io/badge/-NextJS-black?style=for-the-badge&logo=nextdotjs)
+![StyledComponents](https://img.shields.io/badge/-StyledComponents-760a8a?style=for-the-badge&logo=styledcomponents&logoColor=white)
+![StoryBook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
 ## Afinal, o que é o codeSplit?
 
 O codeSplit (nome sujeito a alterações) é um projeto de uma rede social focada no compartilhamento de código, artigos e etc. com principal foco na comunidade desenvolvedora brasileira. E como seu principal diferencial codeSplit seria uma plataforma que gerenciaria projetos e equipes com o objetivo de simular situações reais, como o objeto de fornecer para desenvolvedores juniors experiencia.
