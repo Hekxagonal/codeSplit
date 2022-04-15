@@ -4,32 +4,26 @@ export default {
   title: 'Simple Components/Post',
   component: Component,
   args: {
-    type: 'article',
-    title: 'A evolução do Python',
-    short_description:
-      'Artigo sobre as principais conquistas no universo backend',
-    link: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    type: 'commit',
+    title: 'Flavio Alexandre fez commit no repositório',
+    content: 'feat: implemented modal component',
+    profile_photo: undefined,
     createdAt: '12/12/2002 12:12:12',
   },
   argTypes: {
     type: {
       type: 'string',
       control: 'radio',
-      options: ['article', 'video'],
+      options: ['commit', 'issue', 'team_alert', 'team_add'],
       default: 'article',
       description:
         'É o tipo do Post, deve ser recebido da API, e determina como o componente se comporta, pode ter os seguintes valores:',
     },
     title: {
-      description:
-        'Titulo do Post, caso seja um video é recomendado que seja o nome do video',
-    },
-    short_description: {
       description: 'Subtitulo curto sobre o conteúdo do Post',
     },
-    link: {
-      description:
-        'Caso seja um artigo, link será o src de uma imagem de fonte externa, caso seja um video link sera o src de um iframe ',
+    profile_photo: {
+      description: 'Perfil do Usuário, pode ser undefined',
     },
     createdAt: {
       type: 'string',
@@ -39,13 +33,40 @@ export default {
   },
 };
 
-export const Article = (args: PostTypes) => <Component {...args} />;
+export const Commit = (args: PostTypes) => <Component {...args} />;
 
-export const Video = (args: PostTypes) => <Component {...args} />;
+export const Issue = (args: PostTypes) => <Component {...args} />;
 
-Video.args = {
-  type: 'video',
-  title: 'API // Dicionario do Programador',
-  short_description: 'Canal Código Fonte TV',
-  link: 'https://www.youtube.com/embed/vGuqKIRWosk',
+Issue.args = {
+  type: 'issue',
+  title: 'Flavio Alexandre criou um novo issue',
+  user: 'hekxagonal',
+  content: 'issue: modal not working',
+  createdAt: '12/12/2022 12:12:12',
+  profile_photo:
+    'https://images.pexels.com/photos/2239914/pexels-photo-2239914.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+};
+
+export const TeamAdd = (args: PostTypes) => <Component {...args} />;
+
+TeamAdd.args = {
+  type: 'team_add',
+  title: 'Flavio Alexandre entrou para a equipe!',
+  content: 'front end developer',
+  user: 'hekxagonal',
+  createdAt: '12/04/2022 12:12:12',
+  profile_photo:
+    'https://images.pexels.com/photos/2156883/pexels-photo-2156883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+};
+
+export const TeamAlert = (args: PostTypes) => <Component {...args} />;
+
+TeamAlert.args = {
+  type: 'team_alert',
+  user: 'hekxagonal',
+  title: 'Flavio Alexandre não concluiu sua task a tempo!',
+  content: '',
+  createdAt: '15/04/2022 12:12:12',
+  profile_photo:
+    'https://images.pexels.com/photos/2156883/pexels-photo-2156883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 };

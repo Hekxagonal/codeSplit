@@ -14,7 +14,7 @@ export interface iComponent extends PostTypes {
 const ViewPost = ({
   title,
   type,
-  short_description,
+  content: short_description,
   content,
   link,
   createdAt,
