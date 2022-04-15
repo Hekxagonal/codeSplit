@@ -1,26 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
-
-type Theme = {
-  light: {
-    colors: { primary: string; secondary: string };
-  };
-  dark: {
-    colors: { primary: string; secondary: string };
-  };
-};
-
-interface iProps {
-  theme: Theme;
-  themeValue: keyof Theme;
-}
+import { StyledComponentProps } from '../theme/interface';
 
 export const GlobalStyles = createGlobalStyle`
     * {
         font-family: 'Poppins', sans-serif;
     }
     body {
-      background: ${({ theme, themeValue }: iProps) =>
-        theme[themeValue].colors.primary};
+      background: ${({ theme, themeValue }: StyledComponentProps) =>
+        theme[themeValue].background};
       transition: background 1s ease-in-out;
     }
 `;

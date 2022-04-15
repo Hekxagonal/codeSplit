@@ -37,7 +37,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          <meta name="theme-color" content="#000000" />
+          <meta name="author" content="Flavio Alexandre Rodrigues Gomes" />
+        </Head>
         <body>
           <Main />
           <NextScript />

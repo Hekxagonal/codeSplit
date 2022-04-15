@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@types/mdx": "^2.0.1",
+    "moment": "^2.29.2",
     "next": "latest",
+    "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-is": "^17.0.2",
+    "react-markdown": "^8.0.2",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {

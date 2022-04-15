@@ -1,13 +1,17 @@
 const theme = {
   light: {
-    colors: {
-      primary: 'white',
-    },
+    primary: 'black',
+    secondary: 'white',
+    text: 'black',
+    box: 'white',
+    background: 'white',
   },
   dark: {
-    colors: {
-      primary: 'rgba(0, 0, 141, 1)',
-    },
+    primary: 'rgba(0, 0, 141, 1)',
+    secondary: 'white',
+    text: 'white',
+    box: '#35373b',
+    background: '#141e3d',
   },
 };
 
