@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Post, { PostTypes } from '../../components/Post';
 import * as S from './styles';
 
@@ -7,6 +8,16 @@ export interface iComponent {
 }
 
 const Posts = ({ github_feed, feed }: iComponent) => {
+  useEffect(() => {
+    const get = async () => {
+      const raw = await fetch(
+        'https://raw.githubusercontent.com/Hekxagonal/Hekxagonal/main/info.codeplit.json',
+      );
+      const json = await raw.json();
+      console.log(json);
+    };
+    get();
+  }, []);
   return (
     <S.Container>
       <div>
