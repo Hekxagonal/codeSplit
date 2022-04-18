@@ -1,13 +1,20 @@
+import { useContext, useRef } from 'react';
+import { UserContext } from '../../contexts/user';
 import Button from '../Button';
-import Input from '../Input';
 import * as S from './styles';
 
-const LoginModal = () => {
+export interface LoginModalProps {
+  confirm: (e) => void;
+}
+
+const LoginModal = ({ confirm }: LoginModalProps) => {
+  const input = useRef();
+
   return (
     <S.Container>
-      <Input placeholder="Your github username" width="100%" />
+      <S.Input ref={input} placeholder="Your github username" width="100%" />
       <S.Button>
-        <Button>Enter</Button>
+        <Button onClick={() => confirm(input.current.value)}>Enter</Button>
       </S.Button>
     </S.Container>
   );

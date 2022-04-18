@@ -2,15 +2,27 @@ import * as S from './styles';
 
 export interface iComponent {
   children: string;
-  size: string;
-  fontColor: string;
-  color: string;
+  size?: string;
+  fontColor?: string;
+  color?: string;
+  onClick: () => void;
 }
 
-const Button = ({ children, size = '20px', fontColor, color }: iComponent) => {
+const Button = ({
+  onClick,
+  children,
+  size = '20px',
+  fontColor,
+  color,
+}: iComponent) => {
   return (
     <S.Container>
-      <S.Button color={color} fontColor={fontColor} size={size}>
+      <S.Button
+        onClick={onClick}
+        color={color}
+        fontColor={fontColor}
+        size={size}
+      >
         {children}
       </S.Button>
     </S.Container>

@@ -1,0 +1,17 @@
+{
+    "projects": [
+        {
+            "title": "Spotify Web Clone",
+            "description": "Is a Spotify clone",
+            "recommended": {
+                "languages": ["JavaScript", "TypeScript", "HTML&CSS"],
+                "members": 1
+            },
+            "steps": [
+                { "title": "create a Figma Design",
+                "tools": ["Figma"]
+            }
+            ]
+        }
+    ]
+}

@@ -12,6 +12,7 @@ export interface iComponent {
     open_to_work: boolean;
     codeSplit_team?: string;
   };
+  confirm: () => void;
 }
 
 const InfoModal = ({ content }: iComponent) => {
@@ -46,7 +47,7 @@ const InfoModal = ({ content }: iComponent) => {
       <S.Limiter>{'}'}</S.Limiter>
 
       <S.Button>
-        <Button>Confirm</Button>
+        <Button onClick={confirm}>Confirm</Button>
       </S.Button>
     </S.Container>
   );

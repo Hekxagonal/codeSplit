@@ -1,66 +1,68 @@
-import { useEffect, useState } from 'react';
-import { getMenuData, getPosts } from '../api';
-import Navbar from '../src/components/Navbar';
-import Posts from '../src/templates/Posts';
-import Head from 'next/head';
-import { PostTypes } from '../src/components/Post';
-import Loading from '../src/components/Loading/';
-import Menu from '../src/components/CategMenu';
+import { useContext, useEffect, useState } from 'react';
 import ApiError from '../src/components/ApiError';
-
-type posts = [PostTypes];
-
-type types = {
-  types: string[];
-  categories: string[];
-};
+import { getGithubData } from '../api';
+import LoginModal from '../src/components/LoginModal';
+import { UserContext } from '../src/contexts/user';
+import InfoModal from '../src/components/InfoModal';
+import * as userTypes from '../src/contexts/user/actions';
+import Head from 'next/head';
+import Navbar from '../src/components/Navbar';
 
 export default function Home() {
-  const [posts, setPosts] = useState<posts | undefined>(undefined);
-  const [menuData, setMenuData] = useState<types | undefined>(undefined);
+  const userContext = useContext(UserContext);
+  const [data, setData] = useState(userContext.state.data);
+  const [showInfo, setShowInfo] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [page] = useState(0);
 
-  useEffect(() => console.log(posts), [posts]);
+  useEffect(() => console.log(showInfo), [showInfo]);
+  const handleClickConfirm = (value: string) => {
+    console.log(value);
+    userContext.dispatch({
+      type: userTypes.LOGIN,
+      payload: { username: value },
+    });
+    console.log('SET USER');
 
-  useEffect(() => {
-    const getValues = async () => {
-      return await getPosts();
+    console.log('Fetch');
+    const getValues = async (user: string) => {
+      return await getGithubData(user);
     };
-    getValues()
+    getValues(value)
       .then((r) => {
-        setPosts(r);
+        setData(r);
+        setShowInfo(true);
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         setIsError(true);
       });
-  }, [page]);
+  };
 
-  useEffect(() => {
-    const getValues = async () => {
-      return await getMenuData();
-    };
-    getValues()
-      .then((r) => {
-        setMenuData(r);
-      })
-      .catch(() => {
-        setIsError(true);
-      });
-  }, []);
+  const handleConfirmData = () => {
+    userContext.dispatch({
+      type: userTypes.SET_GITHUB_DATA,
+      payload: { data },
+    });
+    setShowInfo(false);
+  };
 
   if (isError) {
     return <ApiError />;
   }
 
+  if (!userContext.state.user) {
+    return <LoginModal confirm={handleClickConfirm} />;
+  }
+
+  if (showInfo) {
+    return <InfoModal confirm={handleConfirmData} content={data} />;
+  }
   return (
     <>
       <Head>
-        <title>Python Project</title>
+        <title>Blog</title>
       </Head>
-      <Navbar logo="Python" />
-      <Menu types={menuData?.types} categories={menuData?.categories} />
-      {posts ? <Posts content={posts} /> : <Loading />}
+      <Navbar logo="Blog" />
     </>
   );
 }
